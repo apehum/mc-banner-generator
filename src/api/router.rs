@@ -11,9 +11,9 @@ use tower_http::LatencyUnit;
 
 pub fn create_router() -> Router<AppState> {
     Router::new()
-        .route("/api/v1/generate/:banner", get(generate))
-        .route("/api/v1/meta/:banner", get(meta))
-        .route("/api/v1/pattern/:pattern", get(pattern))
+        .route("/api/v1/generate/{banner}", get(generate))
+        .route("/api/v1/meta/{banner}", get(meta))
+        .route("/api/v1/pattern/{pattern}", get(pattern))
         .fallback_service(ServeDir::new("web/dist"))
         .layer(
             TraceLayer::new_for_http()

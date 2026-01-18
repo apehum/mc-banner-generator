@@ -14,7 +14,7 @@ RUN pnpm install
 COPY . /app
 RUN pnpm run build
 
-FROM rust:1.82-bullseye as server
+FROM rust:1.92-bullseye AS server
 
 RUN USER=root cargo new --bin app
 WORKDIR /app
